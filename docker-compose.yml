@@ -1,19 +1,19 @@
 version: '3.1'
 
 services:
-  postgres:
-    image: postgres
-    environment:
-      POSTGRES_PASSWORD: password
-    ports:
-      - 5432:5432
+  # postgres:
+  #   image: postgres
+  #   environment:
+  #     POSTGRES_PASSWORD: password
+  #   ports:
+  #     - 5432:5432
 
-  adminer:
-    image: adminer
-    ports:
-      - 8080:8080
-    depends_on: 
-      - postgres
+  # adminer:
+  #   image: adminer
+  #   ports:
+  #     - 8080:8080
+  #   depends_on: 
+  #     - postgres
 
   service-api-reputation:
     image: mingchoi/service-api-reputation
@@ -22,6 +22,5 @@ services:
 
   service-entity-reputation:
     image: mingchoi/service-entity-reputation
-    # ports:
-    #   - 50051:50051
-
+    ports:
+      - 50051:50051
