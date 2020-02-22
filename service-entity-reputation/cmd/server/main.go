@@ -5,8 +5,8 @@ import (
 	"net"
 
 	proto "github.com/mingchoi/hello-micro-service/proto-go/proto-entity-reputation"
-	"github.com/mingchoi/hello-micro-service/service-entity-reputation/internal/handler"
-	"github.com/mingchoi/hello-micro-service/service-entity-reputation/internal/initializer"
+	"github.com/mingchoi/hello-micro-service/service-entity-reputation/app/handler"
+	"github.com/mingchoi/hello-micro-service/service-entity-reputation/app/initializer"
 	"google.golang.org/grpc"
 )
 

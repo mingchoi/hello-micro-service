@@ -2,6 +2,7 @@ package initializer
 
 import (
 	"fmt"
+	"time"
 
 	_ "github.com/lib/pq"
 	"xorm.io/xorm"
@@ -12,9 +13,10 @@ var (
 )
 
 func InitXORM() {
+	time.Sleep(5 * time.Second)
 	DB, err := xorm.NewEngine(
 		"postgres",
-		fmt.Sprintf("host=%s port=%d user=%s password=%s dbname=%s sslmode=disable", "127.0.0.1", 5432, "postgres", "password", "reputation"),
+		fmt.Sprintf("host=%s port=%d user=%s password=%s dbname=%s sslmode=disable", "postgres", 5432, "postgres", "password", "reputation"),
 	)
 	if err != nil {
 		panic(err)
