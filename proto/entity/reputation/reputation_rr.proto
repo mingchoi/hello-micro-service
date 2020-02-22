@@ -1,0 +1,37 @@
+syntax = "proto3";
+package entity.reputation;
+option go_package = "github.com/mingchoi/hello-micro-service/proto-go/proto-entity-reputation";
+
+import "reputation_struct.proto";
+
+message GetRequest {
+    string user_id = 1;
+}
+message GetResponse {
+    Reputation reputation = 1;
+}
+
+message GetListRequest {
+}
+message GetListResponse {
+    repeated Reputation reputation = 1;
+}
+
+message CreateRequest {
+    Reputation reputation = 1;
+}
+message CreateResponse {
+    Reputation reputation = 1;
+}
+
+message UpdateRequest {
+    Reputation reputation = 1;
+}
+message UpdateResponse {
+}
+
+message DeleteRequest {
+    string user_id = 1;
+}
+message DeleteResponse {
+}

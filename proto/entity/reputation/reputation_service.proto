@@ -1,0 +1,13 @@
+syntax = "proto3";
+package entity.reputation;
+option go_package = "github.com/mingchoi/hello-micro-service/proto-go/proto-entity-reputation";
+
+import "reputation_rr.proto";
+
+service ReputationEntityService {
+    rpc Get(GetRequest) returns (GetResponse);
+    rpc GetList(GetListRequest) returns (GetListResponse);
+    rpc Create(CreateRequest) returns (CreateResponse);
+    rpc Update(UpdateRequest) returns (UpdateResponse);
+    rpc Delete(DeleteRequest) returns (DeleteResponse);
+}

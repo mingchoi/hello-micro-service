@@ -1,0 +1,18 @@
+syntax = "proto3";
+package entity.reputation;
+option go_package = "github.com/mingchoi/hello-micro-service/proto-go/proto-entity-reputation";
+
+message Reputation {
+    string user_id = 1;
+    string user_name = 2;
+    int64 up_vote = 3; 
+    int64 down_vote = 4; 
+    int64 created_at = 5;
+    int64 updated_at = 6;
+}
+
+message ReputationVote {
+    string user_id = 1;
+    string user_name = 2;
+    int64 value = 3;
+}
