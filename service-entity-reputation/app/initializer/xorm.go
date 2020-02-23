@@ -5,28 +5,35 @@ import (
 	"time"
 
 	_ "github.com/lib/pq"
+	"github.com/spf13/viper"
 	"xorm.io/xorm"
-)
 
-var (
-	DB *xorm.Engine
+	"github.com/mingchoi/hello-micro-service/service-entity-reputation/app"
 )
 
 func InitXORM() {
 	time.Sleep(5 * time.Second)
-	DB, err := xorm.NewEngine(
-		"postgres",
-		fmt.Sprintf("host=%s port=%d user=%s password=%s dbname=%s sslmode=disable", "postgres", 5432, "postgres", "password", "reputation"),
+
+	dataSource := fmt.Sprintf(
+		"host=%s port=%d user=%s password=%s dbname=%s sslmode=disable",
+		viper.Get("db.host"),
+		viper.Get("db.port"),
+		viper.Get("db.user"),
+		viper.Get("db.password"),
+		viper.Get("db.dbname"),
 	)
+
+	var err error
+	app.DB, err = xorm.NewEngine("postgres", dataSource)
 	if err != nil {
 		panic(err)
 	}
-	DB.ShowSQL()
+	app.DB.ShowSQL()
 
-	err = DB.Ping()
+	err = app.DB.Ping()
 	if err != nil {
 		panic(err)
 	}
 
-	fmt.Println("connect postgresql success")
+	fmt.Println("Connected to postgres")
 }

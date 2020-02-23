@@ -22,5 +22,7 @@ services:
 
   service-entity-reputation:
     image: mingchoi/service-entity-reputation
+    environment:
+      ENTITY_REPUTATION_DB_HOST: postgres
     ports:
       - 50051:50051

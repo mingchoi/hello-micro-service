@@ -4,7 +4,7 @@ WORKDIR /src
 ADD . /src
 RUN cd /src
 RUN go get ./...
-RUN GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -o app service-api-reputation/main.go
+RUN GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -o app service-api-reputation/main/server/main.go
 
 #  runtime stage
 FROM alpine

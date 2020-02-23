@@ -3,7 +3,7 @@ FROM golang:1.13 AS build
 WORKDIR /src
 ADD . /src
 RUN go get ./...
-RUN GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -o app service-entity-reputation/cmd/server/main.go
+RUN GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -o app service-entity-reputation/main/server/main.go
 
 #  runtime stage
 FROM alpine
